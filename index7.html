@@ -32,7 +32,35 @@ $(document).ready(function(){
 
   writeUserData("1","1","1","1","1","1","1","1"); //이코드가 있어야 작동한다 ?
   // jQuery methods go here...
-  setTimeout(enable_groupQueue, 1500);
+  //setTimeout(enable_groupQueue, 1500);
+  function initApp() {
+      // Listening for auth state changes.
+      // [START authstatelistener]
+      firebase.auth().onAuthStateChanged(function(user) {
+       
+        if (user) {
+          // User is signed in.
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var providerData = user.providerData;
+          console.log("sign in ");
+          setTimeout(enable_groupQueue, 3000);
+          
+        } else {
+          
+          alert("sign out");
+          setTimeout(signin, 2000);
+        }
+        
+      });
+      // [END authstatelistener]
+
+      
+    }
   
 
 });

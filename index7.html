@@ -56,7 +56,8 @@ function initApp() {
           var emailVerified = user.emailVerified;
           var photoURL = user.photoURL;
           var isAnonymous = user.isAnonymous;
-          var uid = user.uid;
+          //var uid = user.uid;
+          uid = user.uid;
           var providerData = user.providerData;
           console.log("sign in ");
           setTimeout(enable_groupQueue, 3000);
@@ -73,8 +74,16 @@ function initApp() {
       
     }
 
+function write_test()
+{
+	firebase.database().ref("insert_test").child(uid).set({
+    How: "much",
+    comment:'test'
+  });
+}
 function enable_groupQueue()
 {
+ 	write_test();
 	invokeCSCode( "ready");
    console.log("enabling groupQueue..");
      
@@ -173,5 +182,5 @@ function update_fileId(member_key, mealId,fileId)
 </script>
 </body>
 <script defer src="./init-firebase.js?a=3"></script>
-<script defer src="utils.js?a=26"></script>
+<script defer src="utils.js?a=27"></script>
 </html>

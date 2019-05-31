@@ -1,4 +1,24 @@
-﻿var uid = "";  
+﻿/*
+
+{
+  "rules": {
+    "insert_test":
+    {
+      "$user_id": 
+      {
+        ".read": "true",
+        ".write":"$user_id == auth.uid"
+      }
+    },
+    "groupQueue":
+    {
+        ".read": "auth != null",
+        ".write":"auth != null"
+    },
+  }
+}
+*/
+var uid = "";  
 function formatDate(date) {
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),

@@ -75,6 +75,7 @@ function initApp() {
 
 function enable_groupQueue()
 {
+	invokeCSCode( "ready");
    console.log("enabling groupQueue..");
      
 	var ref = firebase.database().ref("groupQueue");      

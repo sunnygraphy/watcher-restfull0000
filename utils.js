@@ -10,7 +10,24 @@ function formatDate(date) {
 
     return [year, month, day].join('-');
 } 
-  
+ 
+ 
+function signUp()
+{
+	firebase.auth().createUserWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland").catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      });
+}  
 function writeUserData(evaluator, ownerId, mealKey, name, val, comment,meal_d,fileId) {
   firebase.database().ref(evaluator).child(mealKey).set({
     ownerId: ownerId,

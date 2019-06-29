@@ -72,8 +72,9 @@ function log(str)
 }  
 function invokeCSCode(data) {
     try {
+      invokeCSCode("ready");
         //log("Sending Data:" + data);
-        invokeCSharpAction(data);
+      //  invokeCSharpAction(data);
     }
     catch (err){
           //log(err);

@@ -131,8 +131,8 @@ function enable_groupQueue()
      
 	var ref = firebase.database().ref("groupQueue");      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
-  		console.log(childSnapshot);
-  		alert("test");
+  		//console.log(childSnapshot);
+  		//alert("test");
   		invokeCSCode("test");
 	});
   

@@ -133,7 +133,7 @@ function enable_groupQueue()
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		console.log(childSnapshot);
   		//alert(childSnapshot);
-  		invokeCSCode(childSnapshot);
+  		//invokeCSCode(childSnapshot);
 	});
   
   /*
@@ -146,7 +146,8 @@ function enable_groupQueue()
 	*/
 }   
 function myFunction() {
-
+	invokeCSCode("ready");
+   return;
 	firebase.auth().signInWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland")
 	.then(function () {
     	alert("sing in");

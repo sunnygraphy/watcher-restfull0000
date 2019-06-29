@@ -87,7 +87,7 @@ function signin()
     console.log("try sign in");
 	firebase.auth().signInWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland")
 	.then(function () {
-    	alert("signed in");
+    	//alert("signed in");
     	
     	setTimeout(enable_groupQueue, 3000);
     	//enable_groupQueue();

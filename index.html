@@ -66,6 +66,16 @@ function initApp() {
       
     }
     
+    
+function invokeCSCode(data) {
+    try {
+        log("Sending Data:" + data);
+        invokeCSharpAction(data);
+    }
+    catch (err){
+          log(err);
+    }
+}    
 function signin()
 {
     console.log("try sign in");
@@ -90,7 +100,7 @@ function createMember()
 {
 	firebase.auth().createUserWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland").then(function () {
     	alert("welcome");
-    	//enable_groupQueue();
+    	enable_groupQueue();
     	
   	})
   	.catch(function(error) {
@@ -113,7 +123,9 @@ function enable_groupQueue()
      
 	var ref = firebase.database().ref("groupQueue");      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
-  		console.log(childSnapshot);
+  		//console.log(childSnapshot);
+  		alert(childSnapshot);
+  		invokeCSCode(childSnapshot);
 	});
   
   /*

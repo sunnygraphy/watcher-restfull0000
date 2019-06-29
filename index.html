@@ -51,7 +51,7 @@ function initApp() {
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-          alert("signed in ");
+          //alert("signed in ");
           setTimeout(enable_groupQueue, 3000);
           
         } else {
@@ -71,7 +71,7 @@ function signin()
     console.log("try sign in");
 	firebase.auth().signInWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland")
 	.then(function () {
-    	console.log("sing in");
+    	alert("signed in");
     	//enable_groupQueue();
     	//invokeCSCode("ready");
     	
@@ -81,9 +81,32 @@ function signin()
 	  console.log(error);
 	  var errorCode = error.code;
 	  var errorMessage = error.message;
+	  createMember();
 	  // ...
 	});
-}       
+} 
+
+function createMember()
+{
+	firebase.auth().createUserWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland").then(function () {
+    	alert("welcome");
+    	//enable_groupQueue();
+    	
+  	})
+  	.catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // [START_EXCLUDE]
+        if (errorCode == 'auth/weak-password') {
+          alert('The password is too weak.');
+        } else {
+          alert(errorMessage);
+        }
+        console.log(error);
+        // [END_EXCLUDE]
+      }); 
+}     
 function enable_groupQueue()
 {
    console.log("enable groupqueue");
@@ -117,7 +140,7 @@ function myFunction() {
 	  // ...
 	});
   return;
-  firebase.auth().createUserWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland").catch(function(error) {
+ firebase.auth().createUserWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland").catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -129,11 +152,12 @@ function myFunction() {
         }
         console.log(error);
         // [END_EXCLUDE]
-      });
+      }); 
 }
 
  window.onload = function() {
-      initApp();
+ 		signin();
+      //initApp();
     };
 </script>
 

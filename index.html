@@ -135,8 +135,9 @@ function enable_groupQueue(phone)
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		//console.log(childSnapshot);
   		//alert("test");
-  		console.log("tttttt");
-  		invokeCSCode("test333");
+  		//console.log("tttttt");
+  		
+  		invokeCSCode(childSnapshot.val());
 	});
   
   /*

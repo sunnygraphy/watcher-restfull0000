@@ -84,6 +84,7 @@ function invokeCSCode(data) {
 }    
 function signin(email, pwd)
 {
+    alert(email);
     console.log("try sign in");
 	firebase.auth().signInWithEmailAndPassword(email, pwd)
 	.then(function () {

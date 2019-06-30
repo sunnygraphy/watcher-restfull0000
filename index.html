@@ -84,13 +84,13 @@ function invokeCSCode(data) {
 }    
 function signin(email, pwd)
 {
-    alert(email);
+    //alert(email);
     console.log("try sign in");
 	firebase.auth().signInWithEmailAndPassword(email, pwd)
 	.then(function () {
     	//alert("signed in");
     	invokeCSCode("signedIn");
-    	setTimeout(enable_groupQueue, 3000);
+    	//setTimeout(enable_groupQueue, 3000);
     	//enable_groupQueue();
     	//invokeCSCode("ready");
     	
@@ -127,11 +127,11 @@ function createMember(email,pwd)
         // [END_EXCLUDE]
       }); 
 }     
-function enable_groupQueue()
+function enable_groupQueue(phone)
 {
    console.log("enable groupqueue");
      
-	var ref = firebase.database().ref("groupQueue");      
+	var ref = firebase.database().ref("groupQueue").child(phone);      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		//console.log(childSnapshot);
   		//alert("test");
@@ -154,7 +154,7 @@ function myFunction() {
 	firebase.auth().signInWithEmailAndPassword("mysunnygraphy@gmail.com", "wonderland")
 	.then(function () {
     	alert("sing in");
-    	enable_groupQueue();
+    	//enable_groupQueue();
     	
   	})
   	.catch(function(error) {

@@ -136,8 +136,8 @@ function enable_groupQueue(phone)
   		//console.log(childSnapshot);
   		//alert("test");
   		//console.log("tttttt");
-  		
-  		invokeCSCode(childSnapshot);
+  		var myJSON = JSON.stringify(childSnapshot.val());
+  		invokeCSCode(myJSON);
 	});
   
   /*

@@ -127,9 +127,9 @@ function createMember(email,pwd)
         // [END_EXCLUDE]
       }); 
 } 
-function actual_enable_groupQueue(phone)
+function actual_enable_groupQueue()
 {
-   
+    alert("actual");
 	var ref = firebase.database().ref("groupQueue/"+myphone+"/");      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		//console.log(childSnapshot);

@@ -132,7 +132,7 @@ function createMember(email,pwd)
 
 function get_groupQueue(phone)
 {
-	alert("groupQueue/"+phone+"/");  
+	//alert("groupQueue/"+phone+"/");  
 	var ref = firebase.database().ref("groupQueue/"+phone+"/");
 	    
    	ref.once('value', function(snapshot) {
@@ -153,7 +153,7 @@ function enable_groupQueue(phone)
 	var ref = firebase.database().ref("groupQueue/"+phone+"/");      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		//console.log(childSnapshot);
-  		alert("test");
+  		//alert("test");
   		//console.log("tttttt");
   		var v = childSnapshot.val()
   		var myJSON = JSON.stringify(childSnapshot.val());

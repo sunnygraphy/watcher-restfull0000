@@ -130,7 +130,8 @@ function createMember(email,pwd)
 
 function get_groupQueue(phone)
 {
-	var ref = firebase.database().ref("groupQueue/"+phone+"/");      
+	var ref = firebase.database().ref("groupQueue/"+phone+"/");
+	alert("groupQueue/"+phone+"/");      
    	ref.once('child_added', function(snapshot, prevChildKey) {
    	
    	

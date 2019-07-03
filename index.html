@@ -130,12 +130,13 @@ function createMember(email,pwd)
 function enable_groupQueue(phone)
 {
    console.log("enable groupqueue");
-     
+     alert("enable groupqueue");
 	var ref = firebase.database().ref("groupQueue").child(phone);      
    	ref.on('child_added', function(childSnapshot, prevChildKey) {
   		//console.log(childSnapshot);
-  		//alert("test");
+  		alert("test");
   		//console.log("tttttt");
+  		var v = childSnapshot.val()
   		var myJSON = JSON.stringify(childSnapshot.val());
   		invokeCSCode(myJSON);
 	});
